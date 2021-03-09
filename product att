@@ -1,0 +1,14 @@
+{
+
+    $products = Ticket::query()
+        ->with('attributeValues.ticketAttribute')
+
+        ->get();
+
+    foreach ($products as $product){
+        
+        foreach($product->attributeValues as $item) {
+              return $item->ticketAttribute->Attribute_Name;
+        }
+
+    }
